@@ -10,7 +10,7 @@ import lombok.Setter;
 import lombok.AllArgsConstructor;
 
 
-//import javax.persistence.*;
+import javax.persistence.*;
 import java.awt.print.Book;
 import java.time.LocalDate; //날짜 정보를 나타내는 클래스
 
@@ -18,7 +18,7 @@ import java.time.LocalDate; //날짜 정보를 나타내는 클래스
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//@Entity
+@Entity
 
 public class Rental {
     @Id @GenerateValue
@@ -33,7 +33,7 @@ public class Rental {
     @JoinColumn(name = "bookName") //bookName 열을 외래 키로 사용
     private Book book; //외래 키가 멤버 변수 book에 대입 -> book 변수 사용
 
-    @OnetoOne
+    @ManytoOne
     @JoinColum(name = "author") // 책 저자 -> 외래 키 사용
     private Book author;
 
